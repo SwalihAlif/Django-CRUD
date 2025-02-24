@@ -8,3 +8,8 @@ def create_item(request):
         new_item = MyModel.objects.create(name=name, description=description)
         return redirect('item_list')
     return render(request, 'appname/item_form.html')
+
+
+def list_items(request):
+    items = MyModel.objects.all()
+    return render(request, 'appname/item_list.html', {'items':items})
